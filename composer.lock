@@ -4,8 +4,75 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8934c09cfa2f4d74e5a5533538f056d4",
+    "content-hash": "ef61c98e7a4942702adba5844e2834a7",
     "packages": [
+        {
+            "name": "beberlei/assert",
+            "version": "v3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beberlei/assert.git",
+                "reference": "cb70015c04be1baee6f5f5c953703347c0ac1655"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/cb70015c04be1baee6f5f5c953703347c0ac1655",
+                "reference": "cb70015c04be1baee6f5f5c953703347c0ac1655",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-simplexml": "*",
+                "php": "^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "*",
+                "phpstan/phpstan": "*",
+                "phpunit/phpunit": ">=6.0.0",
+                "yoast/phpunit-polyfills": "^0.1.0"
+            },
+            "suggest": {
+                "ext-intl": "Needed to allow Assertion::count(), Assertion::isCountable(), Assertion::minCount(), and Assertion::maxCount() to operate on ResourceBundles"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/Assert/functions.php"
+                ],
+                "psr-4": {
+                    "Assert\\": "lib/Assert"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Richard Quadling",
+                    "email": "rquadling@gmail.com",
+                    "role": "Collaborator"
+                }
+            ],
+            "description": "Thin assertion library for input validation in business models.",
+            "keywords": [
+                "assert",
+                "assertion",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/beberlei/assert/issues",
+                "source": "https://github.com/beberlei/assert/tree/v3.3.2"
+            },
+            "time": "2021-12-16T21:41:27+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.9.3",
@@ -1220,6 +1287,74 @@
             "time": "2022-04-28T13:05:07+00:00"
         },
         {
+            "name": "illuminate/database",
+            "version": "v9.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/database.git",
+                "reference": "3ecfa322a958b03197560964afd8d7fb201d667b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/3ecfa322a958b03197560964afd8d7fb201d667b",
+                "reference": "3ecfa322a958b03197560964afd8d7fb201d667b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/collections": "^9.0",
+                "illuminate/container": "^9.0",
+                "illuminate/contracts": "^9.0",
+                "illuminate/macroable": "^9.0",
+                "illuminate/support": "^9.0",
+                "php": "^8.0.2",
+                "symfony/console": "^6.0"
+            },
+            "suggest": {
+                "doctrine/dbal": "Required to rename columns and drop SQLite columns (^2.13.3|^3.1.4).",
+                "fakerphp/faker": "Required to use the eloquent factory builder (^1.9.1).",
+                "illuminate/console": "Required to use the database commands (^9.0).",
+                "illuminate/events": "Required to use the observers with Eloquent (^9.0).",
+                "illuminate/filesystem": "Required to use the migrations (^9.0).",
+                "illuminate/pagination": "Required to paginate the result set (^9.0).",
+                "symfony/finder": "Required to use Eloquent model factories (^6.0)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "9.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Database\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Database package.",
+            "homepage": "https://laravel.com",
+            "keywords": [
+                "database",
+                "laravel",
+                "orm",
+                "sql"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
+            "time": "2022-06-07T14:46:41+00:00"
+        },
+        {
             "name": "illuminate/events",
             "version": "v9.17.0",
             "source": {
@@ -2285,6 +2420,80 @@
             "time": "2022-04-05T15:31:38+00:00"
         },
         {
+            "name": "nunomaduro/laravel-console-menu",
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nunomaduro/laravel-console-menu.git",
+                "reference": "a1bc84af2f6eae3dcbf2e59ff889c6fbe671b735"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nunomaduro/laravel-console-menu/zipball/a1bc84af2f6eae3dcbf2e59ff889c6fbe671b735",
+                "reference": "a1bc84af2f6eae3dcbf2e59ff889c6fbe671b735",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
+                "php": "^7.2.5|^8.0",
+                "php-school/cli-menu": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NunoMaduro\\LaravelConsoleMenu\\LaravelConsoleMenuServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NunoMaduro\\LaravelConsoleMenu\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nuno Maduro",
+                    "email": "enunomaduro@gmail.com"
+                }
+            ],
+            "description": "Laravel Console Menu is an output method for your Laravel/Laravel Zero commands.",
+            "keywords": [
+                "artisan",
+                "cli",
+                "command-line",
+                "console",
+                "laravel",
+                "laravel-zero",
+                "php",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/nunomaduro/laravel-console-menu/issues",
+                "source": "https://github.com/nunomaduro/laravel-console-menu"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/paypalme/enunomaduro",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/nunomaduro",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/nunomaduro",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2022-01-13T14:42:31+00:00"
+        },
+        {
             "name": "nunomaduro/laravel-console-summary",
             "version": "v1.8.0",
             "source": {
@@ -2560,6 +2769,127 @@
                 }
             ],
             "time": "2022-05-12T01:36:04+00:00"
+        },
+        {
+            "name": "php-school/cli-menu",
+            "version": "4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-school/cli-menu.git",
+                "reference": "bad5e0177f2b3ada6dc14eee4011fee4001b7679"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-school/cli-menu/zipball/bad5e0177f2b3ada6dc14eee4011fee4001b7679",
+                "reference": "bad5e0177f2b3ada6dc14eee4011fee4001b7679",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "^2.4 | ^3",
+                "ext-mbstring": "*",
+                "ext-posix": "*",
+                "php": ">=7.1",
+                "php-school/terminal": "^0.2.1"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12",
+                "phpunit/phpunit": "^8.0 | ^9.0",
+                "squizlabs/php_codesniffer": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Util/ArrayUtils.php"
+                ],
+                "psr-4": {
+                    "PhpSchool\\CliMenu\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Woodward",
+                    "email": "mikeymike.mw@gmail.com"
+                },
+                {
+                    "name": "Aydin Hassan",
+                    "email": "aydin@hotmail.com"
+                }
+            ],
+            "description": "A command line menu helper in PHP",
+            "keywords": [
+                "cli",
+                "console",
+                "menu",
+                "php-school",
+                "phpschool",
+                "terminal"
+            ],
+            "support": {
+                "issues": "https://github.com/php-school/cli-menu/issues",
+                "source": "https://github.com/php-school/cli-menu/tree/4.3.0"
+            },
+            "time": "2021-12-16T09:40:06+00:00"
+        },
+        {
+            "name": "php-school/terminal",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-school/terminal.git",
+                "reference": "725f86c7db996a4cf65648022f17e22391e97320"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-school/terminal/zipball/725f86c7db996a4cf65648022f17e22391e97320",
+                "reference": "725f86c7db996a4cf65648022f17e22391e97320",
+                "shasum": ""
+            },
+            "require": {
+                "ext-posix": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.9.2",
+                "phpunit/phpunit": "^7.1",
+                "squizlabs/php_codesniffer": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpSchool\\Terminal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Woodward",
+                    "email": "mikeymike.mw@gmail.com"
+                },
+                {
+                    "name": "Aydin Hassan",
+                    "email": "aydin@hotmail.com"
+                }
+            ],
+            "description": "A command line terminal utility in PHP",
+            "keywords": [
+                "cli",
+                "console",
+                "php-school",
+                "phpschool",
+                "terminal"
+            ],
+            "support": {
+                "issues": "https://github.com/php-school/terminal/issues",
+                "source": "https://github.com/php-school/terminal/tree/0.2.1"
+            },
+            "time": "2019-12-17T21:56:06+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -5429,6 +5759,73 @@
                 }
             ],
             "time": "2022-03-03T08:28:38+00:00"
+        },
+        {
+            "name": "fakerphp/faker",
+            "version": "v1.19.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FakerPHP/Faker.git",
+                "reference": "d7f08a622b3346766325488aa32ddc93ccdecc75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/d7f08a622b3346766325488aa32ddc93ccdecc75",
+                "reference": "d7f08a622b3346766325488aa32ddc93ccdecc75",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0",
+                "psr/container": "^1.0 || ^2.0",
+                "symfony/deprecation-contracts": "^2.2 || ^3.0"
+            },
+            "conflict": {
+                "fzaninotto/faker": "*"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.4.1",
+                "doctrine/persistence": "^1.3 || ^2.0",
+                "ext-intl": "*",
+                "symfony/phpunit-bridge": "^4.4 || ^5.2"
+            },
+            "suggest": {
+                "doctrine/orm": "Required to use Faker\\ORM\\Doctrine",
+                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
+                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
+                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
+                "ext-mbstring": "Required for multibyte Unicode string functionality."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "v1.19-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "support": {
+                "issues": "https://github.com/FakerPHP/Faker/issues",
+                "source": "https://github.com/FakerPHP/Faker/tree/v1.19.0"
+            },
+            "time": "2022-02-02T17:38:57+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
