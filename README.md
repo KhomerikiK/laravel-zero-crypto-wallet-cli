@@ -2,35 +2,41 @@
     <img title="Laravel Zero" height="100" src="https://raw.githubusercontent.com/laravel-zero/docs/master/images/logo/laravel-zero-readme.png" />
 </p>
 
-<p align="center">
-  <a href="https://github.com/laravel-zero/framework/actions"><img src="https://img.shields.io/github/workflow/status/laravel-zero/framework/Tests.svg" alt="Build Status"></img></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/dt/laravel-zero/framework.svg" alt="Total Downloads"></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/v/laravel-zero/framework.svg?label=stable" alt="Latest Stable Version"></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/l/laravel-zero/framework.svg" alt="License"></a>
-</p>
+##  CLI tool for Bitgo crypto wallet
+- used package for bitgo integration: https://github.com/KhomerikiK/laravel-bitgo-wallet
+##requirements
+- php 8
 
-<h4> <center>This is a <bold>community project</bold> and not an official Laravel one </center></h4>
+##setup
+```bash
+composer install
 
-Laravel Zero was created by [Nuno Maduro](https://github.com/nunomaduro) and [Owen Voke](https://github.com/owenvoke), and is a micro-framework that provides an elegant starting point for your console application. It is an **unofficial** and customized version of Laravel optimized for building command-line applications.
+cp .env.example .env
+```
 
-- Built on top of the [Laravel](https://laravel.com) components.
-- Optional installation of Laravel [Eloquent](https://laravel-zero.com/docs/database/), Laravel [Logging](https://laravel-zero.com/docs/logging/) and many others.
-- Supports interactive [menus](https://laravel-zero.com/docs/build-interactive-menus/) and [desktop notifications](https://laravel-zero.com/docs/send-desktop-notifications/) on Linux, Windows & MacOS.
-- Ships with a [Scheduler](https://laravel-zero.com/docs/task-scheduling/) and  a [Standalone Compiler](https://laravel-zero.com/docs/build-a-standalone-application/).
-- Integration with [Collision](https://github.com/nunomaduro/collision) - Beautiful error reporting
+###usage
+```bash
+➜  crypto-wallet-cli git:(master) ✗ php crypto-wallet-cli wallet:generate
 
-------
+ chose crypto currency [tbtc]:
+  [0] tbtc
+  [1] tltc
+  [2] tzec
+  [3] tdash
+  [4] tbch
+ > tbtc
 
-## Documentation
+ ✍️  Enter wallet label: :
+ > bitcoin testnet wallet
 
-For full documentation, visit [laravel-zero.com](https://laravel-zero.com/).
+ 🔑 Enter wallet passphrase: :
+ >
 
-## Support the development
-**Do you like this project? Support it by donating**
+📡 generating wallet... 📡
+ 1/1 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%
+📟 wallet has generated 💎
 
-- PayPal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L)
-- Patreon: [Donate](https://www.patreon.com/nunomaduro)
-
-## License
-
-Laravel Zero is an open-source software licensed under the MIT license.
+💳 wallet id: 62a29e5721b8ef0007d58945cee69c00
+🏷  wallet address: 62a29e5721b8ef0007d58945cee69c00
+➜  crypto-wallet-cli git:(master) ✗
+```
