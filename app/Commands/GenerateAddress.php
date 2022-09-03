@@ -3,18 +3,17 @@
 namespace App\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\Facades\DB;
 use Khomeriki\BitgoWallet\Facades\Wallet;
 use LaravelZero\Framework\Commands\Command;
 
-class GenerateAddress extends Command
+class GenerateAddress extends CommandBase
 {
     /**
      * The signature of the command.
      *
      * @var string
      */
-    protected $signature = 'address:generate';
+    protected $signature = 'wallet:address';
 
     /**
      * The description of the command.
@@ -26,29 +25,29 @@ class GenerateAddress extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
-        $wallets = DB::table('wallets')
-            ->select('crypto_currency', 'bitgo_id', 'label', 'passphrase')
-            ->get();
+        $token = $this->authorize();
+        $coin = $this->availableCoins();
 
-        $option = $this->menu('Choose wallet to generate address', $wallets->pluck('label')->toArray())
-            ->setForegroundColour('green')
-            ->setBackgroundColour('black')
-            ->setWidth(200)
-            ->setMargin(5)
-            ->setExitButtonText("Abort")
-            ->addStaticItem('AREA 2')
-            ->open();
+        $wallets = $token->wallets;
 
-        $label = $this->ask('✍️  Enter address label: (optional)', "address-".(string)now());
-        $selected = $wallets->get($option);
+        $option = $this->choice(
+            "Chose your $coin wallet:",
+            $wallets->pluck('label')->toArray(),
+            0
+        );
+
+        $label = $this->ask('✍️  Enter address label: (optional)', 'address-'.(string) now());
+
+        $selectedWallet = $wallets->where('label', $option)->first();
         $wallet = null;
-        $this->task('📟 generating address 📡', function () use (&$wallet, $selected, $label) {
-            $wallet = Wallet::init($selected->crypto_currency, $selected->bitgo_id)->generateAddress($label);
+        $this->task('📟 generating address 📡', function () use (&$wallet, $selectedWallet, $label) {
+            $wallet = Wallet::init($selectedWallet->crypto_currency, $selectedWallet->bitgo_id)->generateAddress($label);
         });
+
         $this->line("💳 wallet id: {$wallet->id}");
         $this->line("🏷  wallet address: {$wallet->address}");
     }

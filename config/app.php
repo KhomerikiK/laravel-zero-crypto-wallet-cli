@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => 'Cwc',
+    'name' => 'Bitgo Wallet cli',
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
 
     'providers' => [
         App\Providers\AppServiceProvider::class,
-        \Khomeriki\BitgoWallet\BitgoServiceProvider::class
+        \Khomeriki\BitgoWallet\BitgoServiceProvider::class,
     ],
 
 ];

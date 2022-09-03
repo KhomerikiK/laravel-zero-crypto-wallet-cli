@@ -3,10 +3,9 @@
 namespace App\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\Facades\DB;
 use LaravelZero\Framework\Commands\Command;
 
-class WalletListing extends Command
+class WalletListing extends CommandBase
 {
     /**
      * The signature of the command.
@@ -25,15 +24,16 @@ class WalletListing extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
-        $wallets = DB::table('wallets')
+        $token = $this->authorize();
+        $wallets = $token->wallets()
             ->select('id', 'crypto_currency', 'label', 'bitgo_id', 'passphrase')
             ->orderBy('id', 'desc')
             ->get()->map(function ($wallet) {
-                return (array)$wallet;
+                return $wallet->toArray();
             })->toArray();
 
         $this->table(

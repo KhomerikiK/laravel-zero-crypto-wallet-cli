@@ -3,11 +3,10 @@
 namespace App\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\Facades\DB;
 use Khomeriki\BitgoWallet\Facades\Wallet;
 use LaravelZero\Framework\Commands\Command;
 
-class GenerateWallet extends Command
+class GenerateWallet extends CommandBase
 {
     /**
      * The signature of the command.
@@ -26,28 +25,22 @@ class GenerateWallet extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
-        $coin = $this->choice(
-            'chose crypto currency',
-            [
-                'tbtc',
-                'tltc',
-                'tzec',
-                'tdash',
-                'tbch',
-            ],
-            0
-        );
+        $token = $this->authorize();
+
+        $coin = $this->availableCoins();
+
         $label = $this->ask('✍️  Enter wallet label: ');
         $pass = $this->secret('🔑 Enter wallet passphrase: ');
 
         $wallet = null;
-        $this->task('📟 generating wallet 📡', function () use (&$wallet, $label, $pass, $coin) {
+
+        $this->task('📟 generating wallet 📡', function () use (&$wallet, $label, $pass, $coin, $token) {
             $wallet = Wallet::init($coin)->generate($label, $pass);
-            DB::table('wallets')->insert([
+            $token->wallets()->create([
                 'crypto_currency' => $coin,
                 'bitgo_id' => $wallet->id,
                 'label' => $label,
@@ -58,6 +51,8 @@ class GenerateWallet extends Command
 
         $this->line("💳 wallet id: {$wallet->id}");
         $this->line("🏷  wallet address: {$wallet->receiveAddress['address']}");
+
+        $this->call('wallet:list');
     }
 
     /**

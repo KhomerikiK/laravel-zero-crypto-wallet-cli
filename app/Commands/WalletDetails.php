@@ -3,11 +3,10 @@
 namespace App\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\Facades\DB;
 use Khomeriki\BitgoWallet\Facades\Wallet;
 use LaravelZero\Framework\Commands\Command;
 
-class WalletDetails extends Command
+class WalletDetails extends CommandBase
 {
     /**
      * The signature of the command.
@@ -26,36 +25,39 @@ class WalletDetails extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
-        $wallets = DB::table('wallets')
+        $token = $this->authorize();
+        $wallets = $token->wallets()
             ->select('crypto_currency', 'bitgo_id', 'label', 'passphrase')
             ->get();
 
-        $option = $this->menu('Choose wallet to generate address', $wallets->pluck('label')->toArray())
-            ->setForegroundColour('green')
-            ->setBackgroundColour('black')
-            ->setWidth(200)
-            ->setMargin(5)
-            ->setExitButtonText("Abort")
-            ->addStaticItem('AREA 2')
-            ->open();
-        $selected = $wallets->get($option);
+        $option = $this->choice(
+            'Chose your wallet:',
+            $wallets->pluck('label')->toArray(),
+            0
+        );
+
+        $selectedWallet = $wallets->where('label', $option)->first();
         $wallet = null;
         $maxSpendableAmount = [];
-        $this->task('📟Retrieving wallet data📡', function () use (&$wallet, &$maxSpendableAmount, $selected) {
-            $wallet = Wallet::init($selected->crypto_currency, $selected->bitgo_id)->get();
+        $this->task('📟Retrieving wallet data📡', function () use (&$wallet, &$maxSpendableAmount, $selectedWallet) {
+            $wallet = Wallet::init($selectedWallet->crypto_currency, $selectedWallet->bitgo_id)->get();
             $maxSpendableAmount = $wallet->getMaximumSpendable();
         });
 
-        $this->info("💳 Crypto currency: {$wallet->id}");
+        if (is_null($wallet)) {
+            $this->call('wallet:get');
+        }
+
+        $this->info("💳 Crypto currency: {$wallet->coin}");
         $this->info("💳 Wallet id: {$wallet->id}");
         $this->info("🏷  Wallet address: {$wallet->receiveAddress['address']}");
-        $this->info("🏦 Balance: ".$this->baseUnitToCoin((int)$wallet->balance));
-        $this->info("✅ Confirmed Balance: ".$this->baseUnitToCoin((int)$wallet->confirmedBalance));
-        $this->info("💶 Maximum spendable amount: ".$this->baseUnitToCoin((int)$maxSpendableAmount['maximumSpendable']));
+        $this->info('🏦 Balance: '.$this->baseUnitToCoin((int) $wallet->balance));
+        $this->info('✅ Confirmed Balance: '.$this->baseUnitToCoin((int) $wallet->confirmedBalance));
+        $this->info('💶 Maximum spendable amount: '.$this->baseUnitToCoin((int) $maxSpendableAmount['maximumSpendable']));
     }
 
     public function baseUnitToCoin($baseUnits)
