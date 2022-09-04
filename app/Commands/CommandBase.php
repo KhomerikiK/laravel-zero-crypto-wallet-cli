@@ -38,18 +38,9 @@ class CommandBase extends Command
         );
     }
 
-    public function menuScreen(string $title)
-    {
-        return $this->ask($title)
-            ->setForegroundColour('green')
-            ->setBackgroundColour('black')
-            ->setWidth(200)
-            ->setMargin(5)
-            ->setExitButtonText('Abort')
-            ->addStaticItem('AREA 2')
-            ->open();
-    }
-
+    /**
+     * @return AccessToken
+     */
     public function authorize(): AccessToken
     {
         $token = Cache::get('access_token', '');
