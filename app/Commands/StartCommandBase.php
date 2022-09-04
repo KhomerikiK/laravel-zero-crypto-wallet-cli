@@ -40,7 +40,7 @@ class StartCommandBase extends CommandBase
             if (! $accessToken) {
                 AccessToken::create(['token' => $token]);
             }
-            Cache::put('access_token', $token);
+            Cache::put('access_token', $token, 600);
             $this->info('You have successfully logged in! ');
         } else {
             $this->warn('⚠️ Incorrect access token!');
