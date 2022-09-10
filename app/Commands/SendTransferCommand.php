@@ -53,7 +53,7 @@ class SendTransferCommand extends CommandBase
 
             $result = $bitgoWallet->sendTransfer($transferData);
 
-            Arr::has($result, 'error');
+            return !Arr::has($result, 'error');
         });
     }
 
