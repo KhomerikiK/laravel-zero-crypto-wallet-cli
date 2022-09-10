@@ -21,14 +21,14 @@ class WalletDetails extends CommandBase
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Get wallet information';
 
     /**
      * Execute the console command.
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         $token = $this->authorize();
         $selectedWallet = $this->selectWallet($token, $this->option('wallet'));
@@ -77,8 +77,8 @@ class WalletDetails extends CommandBase
     {
         $transfers = array_map(function ($transfer) {
             $transfer = Arr::only((array) $transfer, ['coin', 'value', 'type', 'usd', 'state', 'feeString']);
-            $transfer['value'] = $this->baseUnitToCoin($transfer['value']);
-            $transfer['usd'] = $this->usdFormat($transfer['usd']);
+            $transfer['value'] = $this->baseUnitToCoin(abs($transfer['value']));
+            $transfer['usd'] = $this->usdFormat(abs($transfer['usd']));
             $transfer['feeString'] = $this->baseUnitToCoin($transfer['feeString']);
 
             return $transfer;
