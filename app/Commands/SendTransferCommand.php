@@ -53,9 +53,9 @@ class SendTransferCommand extends CommandBase
 
             $result = $bitgoWallet->sendTransfer($transferData);
 
-            return !Arr::has($result, 'error');
+            return ! Arr::has($result, 'error');
         });
-        $this->call("wallet:get", ['wallet'=>$wallet->bitgo_id]);
+        $this->call('wallet:get', ['wallet' => $wallet->bitgo_id]);
     }
 
     /**
