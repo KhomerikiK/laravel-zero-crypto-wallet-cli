@@ -46,6 +46,7 @@ class GenerateAddress extends CommandBase
         $wallet = null;
         $this->task('📟 generating address 📡', function () use (&$wallet, $selectedWallet, $label) {
             $wallet = Wallet::init($selectedWallet->crypto_currency, $selectedWallet->bitgo_id)->generateAddress($label);
+            $this->notify('Generating address', 'Address generated successfully');
         });
 
         $this->line("💳 wallet id: {$wallet->id}");

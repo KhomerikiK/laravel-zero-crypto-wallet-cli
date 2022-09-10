@@ -49,6 +49,7 @@ class GenerateWallet extends CommandBase
         });
         $this->newLine();
 
+        $this->notify('Generating wallet', 'wallet generated successfully');
         $this->line("💳 wallet id: {$wallet->id}");
         $this->line("🏷  wallet address: {$wallet->receiveAddress['address']}");
 
