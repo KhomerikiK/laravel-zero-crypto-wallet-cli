@@ -30,3 +30,6 @@ cp .env.example .env
 
 ## 5) Get wallet info
 ![img_4.png](img_4.png)
+
+## 6) Send Transfer
+![img_5.png](img_5.png)
