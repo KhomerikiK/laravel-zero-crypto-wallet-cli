@@ -2,7 +2,6 @@
 
 namespace App\Commands;
 
-use App\AccessToken;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Arr;
 use Khomeriki\BitgoWallet\Facades\Wallet;
@@ -32,12 +31,12 @@ class WalletDetails extends CommandBase
     public function handle()
     {
         $token = $this->authorize();
-        $selectedWallet = $this->getWallet($token);
+        $selectedWallet = $this->selectWallet($token, $this->option('wallet'));
 
         if ($selectedWallet) {
             $wallet = null;
             $maxSpendableAmount = [];
-            $this->task('📟Retrieving wallet data📡', function () use (&$wallet, &$maxSpendableAmount, $selectedWallet) {
+            $this->task('📟 Retrieving wallet data📡', function () use (&$wallet, &$maxSpendableAmount, $selectedWallet) {
                 $wallet = Wallet::init($selectedWallet->crypto_currency, $selectedWallet->bitgo_id)->get();
                 $maxSpendableAmount = $wallet->getMaximumSpendable();
             });
@@ -53,28 +52,6 @@ class WalletDetails extends CommandBase
         } else {
             $this->warn('⚠️ Wallet not found !');
         }
-    }
-
-    private function getWallet(AccessToken $token): ?\App\Wallet
-    {
-        $walletOption = $this->option('wallet');
-        if ($walletOption) {
-            $selectedWallet = $token->wallets()->where('bitgo_id', $walletOption)->first();
-        } else {
-            $wallets = $token->wallets()
-                ->select('crypto_currency', 'bitgo_id', 'label', 'passphrase')
-                ->get();
-
-            $option = $this->choice(
-                'Chose your wallet:',
-                $wallets->pluck('label')->toArray(),
-                0
-            );
-
-            $selectedWallet = $wallets->where('label', $option)->first();
-        }
-
-        return $selectedWallet;
     }
 
     /**
@@ -99,7 +76,7 @@ class WalletDetails extends CommandBase
     private function renderTransaction($transfers): void
     {
         $transfers = array_map(function ($transfer) {
-            $transfer = Arr::only((array) $transfer, ['coin', 'value', 'usd', 'state', 'feeString']);
+            $transfer = Arr::only((array) $transfer, ['coin', 'value', 'type', 'usd', 'state', 'feeString']);
             $transfer['value'] = $this->baseUnitToCoin($transfer['value']);
             $transfer['usd'] = $this->usdFormat($transfer['usd']);
             $transfer['feeString'] = $this->baseUnitToCoin($transfer['feeString']);
@@ -110,19 +87,9 @@ class WalletDetails extends CommandBase
         $this->newLine();
         $this->line('Wallet transfers');
         $this->table(
-            ['coin', 'value', 'feeString', 'usd', 'state'],
+            ['coin', 'type', 'value', 'feeString', 'usd', 'state'],
             $transfers,
         );
-    }
-
-    private function baseUnitToCoin(int $baseUnits): string
-    {
-        return number_format($baseUnits / 100000000, 7);
-    }
-
-    private function usdFormat(float $usd): string
-    {
-        return number_format($usd, 2);
     }
 
     /**
