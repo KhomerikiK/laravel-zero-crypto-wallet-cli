@@ -14,7 +14,7 @@ class WalletDetails extends CommandBase
      *
      * @var string
      */
-    protected $signature = 'wallet:get {--wallet=}';
+    protected $signature = 'wallet:get {wallet?}';
 
     /**
      * The description of the command.
@@ -31,7 +31,7 @@ class WalletDetails extends CommandBase
     public function handle(): void
     {
         $token = $this->authorize();
-        $selectedWallet = $this->selectWallet($token, $this->option('wallet'));
+        $selectedWallet = $this->selectWallet($token, $this->argument('wallet'));
 
         if ($selectedWallet) {
             $wallet = null;
