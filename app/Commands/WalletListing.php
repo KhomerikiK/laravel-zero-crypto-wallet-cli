@@ -3,6 +3,7 @@
 namespace App\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
 
 class WalletListing extends CommandBase
@@ -33,7 +34,10 @@ class WalletListing extends CommandBase
             ->select('id', 'crypto_currency', 'label', 'bitgo_id', 'passphrase')
             ->orderBy('id', 'desc')
             ->get()->map(function ($wallet) {
-                return $wallet->toArray();
+                $wallet = $wallet->toArray();
+                $wallet['passphrase'] = Str::mask($wallet['passphrase'], '*', '1');
+
+                return $wallet;
             })->toArray();
 
         $this->table(
