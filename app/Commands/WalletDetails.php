@@ -76,10 +76,11 @@ class WalletDetails extends CommandBase
     private function renderTransaction($transfers): void
     {
         $transfers = array_map(function ($transfer) {
-            $transfer = Arr::only((array) $transfer, ['coin', 'value', 'type', 'usd', 'state', 'feeString']);
+            $transfer = Arr::only((array) $transfer, ['coin', 'value', 'type', 'usd', 'state', 'feeString', 'usdRate']);
             $transfer['value'] = $this->baseUnitToCoin(abs($transfer['value']));
             $transfer['usd'] = $this->usdFormat(abs($transfer['usd']));
             $transfer['feeString'] = $this->baseUnitToCoin($transfer['feeString']);
+            $transfer['usdRate'] = number_format($transfer['usdRate'], 2);
 
             return $transfer;
         }, $transfers);
@@ -87,7 +88,7 @@ class WalletDetails extends CommandBase
         $this->newLine();
         $this->line('Wallet transfers');
         $this->table(
-            ['coin', 'type', 'value', 'feeString', 'usd', 'state'],
+            ['coin', 'type', 'value', 'feeString', 'usd', 'usdRate', 'state'],
             $transfers,
         );
     }
