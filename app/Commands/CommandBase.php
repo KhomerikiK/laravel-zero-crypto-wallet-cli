@@ -73,6 +73,11 @@ class CommandBase extends Command
     {
         START:
         $accessToken = Cache::get('access_token');
+        $expressApiUrl = Cache::get('bitgo_express_url');
+        if (! $expressApiUrl) {
+            $this->warn('Bitgo express api url not set');
+            $this->call('bitgo:express');
+        }
 
         $token = AccessToken::where('token', $accessToken)->first();
         if (! $token) {
