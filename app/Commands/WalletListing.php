@@ -20,7 +20,7 @@ class WalletListing extends CommandBase
      *
      * @var string
      */
-    protected $description = 'List all the wallets';
+    protected $description = 'List generated wallets 💻';
 
     /**
      * Execute the console command.

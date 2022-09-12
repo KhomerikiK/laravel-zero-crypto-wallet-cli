@@ -13,7 +13,7 @@ composer install
 
 cp .env.example .env
 ```
-
+![img_6.png](img_6.png)
 # usage
 
 ## 1) Start

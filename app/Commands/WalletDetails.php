@@ -21,7 +21,7 @@ class WalletDetails extends CommandBase
      *
      * @var string
      */
-    protected $description = 'Get wallet information';
+    protected $description = 'Get wallet information 📟';
 
     /**
      * Execute the console command.

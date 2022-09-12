@@ -15,14 +15,14 @@ class SendTransferCommand extends CommandBase
      *
      * @var string
      */
-    protected $signature = 'transfer:send';
+    protected $signature = 'wallet:transfer';
 
     /**
      * The description of the command.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Send transfer from wallet 💸';
 
     /**
      * Execute the console command.

@@ -62,6 +62,31 @@ return [
         Illuminate\Console\Scheduling\ScheduleListCommand::class,
         Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         LaravelZero\Framework\Commands\StubPublishCommand::class,
+        \Illuminate\Database\Console\Migrations\MigrateMakeCommand::class,
+        \LaravelZero\Framework\Commands\BuildCommand::class,
+        \LaravelZero\Framework\Commands\InstallCommand::class,
+        \LaravelZero\Framework\Commands\RenameCommand::class,
+        \Illuminate\Database\Console\Seeds\SeedCommand::class,
+        \Illuminate\Database\Console\WipeCommand::class,
+        \LaravelZero\Framework\Commands\MakeCommand::class,
+        \Illuminate\Database\Console\Migrations\MigrateCommand::class,
+        \Illuminate\Database\Console\Factories\FactoryMakeCommand::class,
+        \Illuminate\Database\Console\Migrations\FreshCommand::class,
+        \Illuminate\Database\Console\Migrations\InstallCommand::class,
+        \Illuminate\Database\Console\Migrations\RefreshCommand::class,
+        \Illuminate\Database\Console\Migrations\ResetCommand::class,
+        \Illuminate\Database\Console\Migrations\RollbackCommand::class,
+        \Illuminate\Database\Console\Migrations\StatusCommand::class,
+        \Illuminate\Foundation\Console\ModelMakeCommand::class,
+        \Illuminate\Database\Console\Seeds\SeedCommand::class,
+        \Illuminate\Database\Console\Seeds\SeederMakeCommand::class,
+        \Illuminate\Foundation\Console\TestMakeCommand::class,
+        \Pest\Laravel\Commands\PestDatasetCommand::class,
+        \Pest\Laravel\Commands\PestInstallCommand::class,
+        \Pest\Laravel\Commands\PestTestCommand::class,
+        \LaravelZero\Framework\Commands\TestMakeCommand::class
+
+
     ],
 
     /*

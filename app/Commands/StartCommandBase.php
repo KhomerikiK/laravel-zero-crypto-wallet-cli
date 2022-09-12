@@ -21,7 +21,7 @@ class StartCommandBase extends CommandBase
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Start CLI with login 🥳';
 
     /**
      * @return void

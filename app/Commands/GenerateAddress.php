@@ -20,7 +20,7 @@ class GenerateAddress extends CommandBase
      *
      * @var string
      */
-    protected $description = 'Generate address on wallet';
+    protected $description = 'Generate address on the wallet ⛓';
 
     /**
      * Execute the console command.

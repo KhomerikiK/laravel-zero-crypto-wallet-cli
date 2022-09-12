@@ -20,7 +20,7 @@ class GenerateWallet extends CommandBase
      *
      * @var string
      */
-    protected $description = 'Generate crypto wallet';
+    protected $description = 'Generate wallet 📡';
 
     /**
      * Execute the console command.
