@@ -86,6 +86,7 @@ class CommandBase extends Command
         }
 
         config(['bitgo.api_key' => $token->token]);
+        config(['bitgo.express_api_url' => $expressApiUrl]);
 
         $bitgo = new BitgoAdapter();
         $res = $bitgo->me()->status();

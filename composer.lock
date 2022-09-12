@@ -1462,16 +1462,16 @@
         },
         {
             "name": "khomerikik/laravel-bitgo-wallet",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KhomerikiK/laravel-bitgo-wallet.git",
-                "reference": "9c7f98cacc4577ba09e27c159ca910397a667582"
+                "reference": "a654eda5f95cdfb81931beb0312941c2765b116b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KhomerikiK/laravel-bitgo-wallet/zipball/9c7f98cacc4577ba09e27c159ca910397a667582",
-                "reference": "9c7f98cacc4577ba09e27c159ca910397a667582",
+                "url": "https://api.github.com/repos/KhomerikiK/laravel-bitgo-wallet/zipball/a654eda5f95cdfb81931beb0312941c2765b116b",
+                "reference": "a654eda5f95cdfb81931beb0312941c2765b116b",
                 "shasum": ""
             },
             "require": {
@@ -1534,9 +1534,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KhomerikiK/laravel-bitgo-wallet/issues",
-                "source": "https://github.com/KhomerikiK/laravel-bitgo-wallet/tree/v0.1.0"
+                "source": "https://github.com/KhomerikiK/laravel-bitgo-wallet/tree/v0.1.1"
             },
-            "time": "2022-09-12T11:39:59+00:00"
+            "time": "2022-09-12T11:52:18+00:00"
         },
         {
             "name": "laminas/laminas-servicemanager",
