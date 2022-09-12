@@ -10,6 +10,7 @@
 ## setup
 ```bash
 composer install
+php cwc migrate
 
 cp .env.example .env
 ```
