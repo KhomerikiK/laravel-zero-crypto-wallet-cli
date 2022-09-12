@@ -84,6 +84,7 @@ return [
         \Pest\Laravel\Commands\PestDatasetCommand::class,
         \Pest\Laravel\Commands\PestInstallCommand::class,
         \Pest\Laravel\Commands\PestTestCommand::class,
+        \Pest\Laravel\Commands\PestTestCommand::class,
         \LaravelZero\Framework\Commands\TestMakeCommand::class,
 
     ],

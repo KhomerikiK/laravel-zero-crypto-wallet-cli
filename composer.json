@@ -1,6 +1,6 @@
 {
-    "name": "laravel-zero/laravel-zero",
-    "description": "The Laravel Zero Framework.",
+    "name": "khomeriki/laravel-zero-crypto-wallet-cli",
+    "description": "CLI crypto wallet developed using laravel zero",
     "keywords": [
         "laravel",
         "laravel zero",
@@ -30,12 +30,12 @@
         "illuminate/view": "^9.0",
         "khomerikik/laravel-bitgo-wallet": "dev-main",
         "laminas/laminas-text": "^2.9",
-        "laravel-zero/framework": "^9.0",
         "nunomaduro/laravel-console-menu": "^3.2",
         "nunomaduro/laravel-desktop-notifier": "^2.6",
         "nunomaduro/termwind": "^1.14"
     },
     "require-dev": {
+        "laravel-zero/framework": "^9.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.1",
         "mockery/mockery": "^1.4.4",
