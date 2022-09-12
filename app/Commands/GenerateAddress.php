@@ -35,22 +35,22 @@ class GenerateAddress extends CommandBase
         $wallets = $token->wallets;
 
         $option = $this->choice(
-            "Chose your $coin wallet:",
+            "Choose your $coin wallet:",
             $wallets->pluck('label')->toArray(),
             0
         );
 
-        $label = $this->ask('✍️  Enter address label: (optional)', 'address-'.(string) now());
+        $label = $this->ask('✍️ Address label: (optional)', 'address-'.(string) now());
 
         $selectedWallet = $wallets->where('label', $option)->first();
-        $wallet = null;
-        $this->task('📟 generating address 📡', function () use (&$wallet, $selectedWallet, $label) {
-            $wallet = Wallet::init($selectedWallet->crypto_currency, $selectedWallet->bitgo_id)->generateAddress($label);
+        $address = null;
+        $this->task('📟 Generating address 📡', function () use (&$address, $selectedWallet, $label) {
+            $address = Wallet::init($selectedWallet->crypto_currency, $selectedWallet->bitgo_id)->generateAddress($label);
             $this->notify('Generating address', 'Address generated successfully');
         });
 
-        $this->line("💳 wallet id: {$wallet->id}");
-        $this->line("🏷  wallet address: {$wallet->address}");
+        $this->line("💳 Address id: {$address->id}");
+        $this->line("🏷  Wallet address: {$address->address}");
     }
 
     /**

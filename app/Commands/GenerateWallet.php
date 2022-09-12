@@ -33,12 +33,12 @@ class GenerateWallet extends CommandBase
 
         $coin = $this->availableCoins();
 
-        $label = $this->ask('✍️  Enter wallet label: ');
-        $pass = $this->secret('🔑 Enter wallet passphrase: ');
+        $label = $this->ask('✍️ Wallet label: ');
+        $pass = $this->secret('🔑 Wallet passphrase: ');
 
         $wallet = null;
 
-        $this->task('📟 generating wallet 📡', function () use (&$wallet, $label, $pass, $coin, $token) {
+        $this->task('📟 Generating wallet 📡', function () use (&$wallet, $label, $pass, $coin, $token) {
             $wallet = Wallet::init($coin)->generate($label, $pass);
             $token->wallets()->create([
                 'crypto_currency' => $coin,
@@ -50,8 +50,8 @@ class GenerateWallet extends CommandBase
         $this->newLine();
 
         $this->notify('Generating wallet', 'wallet generated successfully');
-        $this->line("💳 wallet id: {$wallet->id}");
-        $this->line("🏷  wallet address: {$wallet->receiveAddress['address']}");
+        $this->line("💳 Wallet id: {$wallet->id}");
+        $this->line("🏷  Wallet address: {$wallet->receiveAddress['address']}");
 
         $this->call('wallet:list');
     }

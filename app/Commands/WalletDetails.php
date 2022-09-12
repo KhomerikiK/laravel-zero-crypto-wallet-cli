@@ -62,6 +62,7 @@ class WalletDetails extends CommandBase
     private function renderWalletInfo($wallet, $maxSpendableAmount): void
     {
         $this->info("💳 Crypto currency: {$wallet->coin}");
+        $this->info("📛 Wallet label: {$wallet->label}");
         $this->info("💳 Wallet id: {$wallet->id}");
         $this->info("🏷  Wallet address: {$wallet->receiveAddress['address']}");
         $this->info('🏦 Balance: '.$this->baseUnitToCoin((int) $wallet->balance));
