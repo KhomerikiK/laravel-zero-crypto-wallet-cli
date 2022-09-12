@@ -33,8 +33,8 @@ class GenerateWallet extends CommandBase
 
         $coin = $this->availableCoins();
 
-        $label = $this->ask('✍️ Wallet label: ');
-        $pass = $this->secret('🔑 Wallet passphrase: ');
+        $label = $this->ask('✍️ Wallet label ');
+        $pass = $this->secret('🔑 Wallet passphrase ');
 
         $wallet = null;
 
