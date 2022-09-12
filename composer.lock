@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87e369bf24bf7e52bee788c7638f2ee9",
+    "content-hash": "2098362e0841dda74b3dc6ed2d2e5b57",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1462,16 +1462,16 @@
         },
         {
             "name": "khomerikik/laravel-bitgo-wallet",
-            "version": "dev-main",
+            "version": "v0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KhomerikiK/laravel-bitgo-wallet.git",
-                "reference": "0aae53a03a74313a3e7e3d9e58ef511fd8093c62"
+                "reference": "9c7f98cacc4577ba09e27c159ca910397a667582"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KhomerikiK/laravel-bitgo-wallet/zipball/0aae53a03a74313a3e7e3d9e58ef511fd8093c62",
-                "reference": "0aae53a03a74313a3e7e3d9e58ef511fd8093c62",
+                "url": "https://api.github.com/repos/KhomerikiK/laravel-bitgo-wallet/zipball/9c7f98cacc4577ba09e27c159ca910397a667582",
+                "reference": "9c7f98cacc4577ba09e27c159ca910397a667582",
                 "shasum": ""
             },
             "require": {
@@ -1497,7 +1497,6 @@
                 "phpunit/phpunit": "^9.5",
                 "spatie/laravel-ray": "^1.26"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1535,9 +1534,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KhomerikiK/laravel-bitgo-wallet/issues",
-                "source": "https://github.com/KhomerikiK/laravel-bitgo-wallet/tree/main"
+                "source": "https://github.com/KhomerikiK/laravel-bitgo-wallet/tree/v0.1.0"
             },
-            "time": "2022-09-11T12:55:39+00:00"
+            "time": "2022-09-12T11:39:59+00:00"
         },
         {
             "name": "laminas/laminas-servicemanager",
@@ -8091,11 +8090,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "khomerikik/laravel-bitgo-wallet": 20
-    },
-    "prefer-stable": true,
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.0"
