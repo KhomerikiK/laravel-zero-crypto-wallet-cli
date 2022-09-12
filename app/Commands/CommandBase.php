@@ -54,7 +54,7 @@ class CommandBase extends Command
     public function availableCoins()
     {
         return $this->choice(
-            'chose crypto currency',
+            'Choose crypto currency',
             [
                 'tbtc',
                 'tltc',
@@ -71,9 +71,14 @@ class CommandBase extends Command
      */
     public function authorize(): AccessToken
     {
-        $token = Cache::get('access_token', '');
+        START:
+        $accessToken = Cache::get('access_token');
 
-        $token = AccessToken::where('token', $token)->first();
+        $token = AccessToken::where('token', $accessToken)->first();
+        if (! $token) {
+            $this->call('start');
+            goto START;
+        }
 
         config(['bitgo.api_key' => $token->token]);
 
@@ -82,6 +87,7 @@ class CommandBase extends Command
 
         if ($res != 200) {
             $this->call('start');
+            goto START;
         }
 
         return $token;
@@ -97,7 +103,7 @@ class CommandBase extends Command
                 ->get();
 
             $option = $this->choice(
-                'Chose your wallet:',
+                'Choose your wallet:',
                 $wallets->pluck('label')->toArray(),
                 0
             );

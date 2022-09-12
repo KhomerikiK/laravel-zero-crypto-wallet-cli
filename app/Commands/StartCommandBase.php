@@ -24,12 +24,11 @@ class StartCommandBase extends CommandBase
     protected $description = 'Command description';
 
     /**
-     * Execute the console command.
-     *
-     * @return mixed
+     * @return void
      */
     public function handle(): void
     {
+        START:
         $token = $this->secret('🔐 Enter your bitgo access token');
         config(['bitgo.api_key' => $token]);
         $bitgo = new BitgoAdapter();
@@ -44,7 +43,7 @@ class StartCommandBase extends CommandBase
             $this->info('You have successfully logged in! ');
         } else {
             $this->warn('⚠️ Incorrect access token!');
-            $this->call('start');
+            goto START;
         }
     }
 
