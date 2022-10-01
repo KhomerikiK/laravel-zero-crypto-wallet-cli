@@ -28,7 +28,7 @@ class SetExpressApiUrlCommand extends Command
      *
      * @return mixed
      */
-    public function handle(BitgoAdapter $adapter):void
+    public function handle(BitgoAdapter $adapter): void
     {
         $url = $this->option('url');
         START:
