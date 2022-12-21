@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Cache;
 use Khomeriki\BitgoWallet\Adapters\BitgoAdapter;
 use LaravelZero\Framework\Commands\Command;
 
-class SetExpressApiUrlCommand extends Command
+class BitgoExpressCommand extends Command
 {
     /**
      * The signature of the command.

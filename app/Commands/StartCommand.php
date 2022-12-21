@@ -7,7 +7,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Cache;
 use Khomeriki\BitgoWallet\Adapters\BitgoAdapter;
 
-class StartCommandBase extends CommandBase
+class StartCommand extends CommandBase
 {
     /**
      * The signature of the command.

@@ -7,7 +7,7 @@ use Illuminate\Support\Arr;
 use Khomeriki\BitgoWallet\Facades\Wallet;
 use LaravelZero\Framework\Commands\Command;
 
-class WalletDetails extends CommandBase
+class WalletGetCommand extends CommandBase
 {
     /**
      * The signature of the command.

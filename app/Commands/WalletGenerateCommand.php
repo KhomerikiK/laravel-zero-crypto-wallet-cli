@@ -6,7 +6,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Khomeriki\BitgoWallet\Facades\Wallet;
 use LaravelZero\Framework\Commands\Command;
 
-class GenerateWallet extends CommandBase
+class WalletGenerateCommand extends CommandBase
 {
     /**
      * The signature of the command.

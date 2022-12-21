@@ -8,7 +8,7 @@ use Khomeriki\BitgoWallet\Data\Requests\TransferData;
 use Khomeriki\BitgoWallet\Data\Requests\TransferRecipientData;
 use LaravelZero\Framework\Commands\Command;
 
-class SendTransferCommand extends CommandBase
+class WalletTransferCommand extends CommandBase
 {
     /**
      * The signature of the command.

@@ -6,7 +6,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
 
-class WalletListing extends CommandBase
+class WalletListCommand extends CommandBase
 {
     /**
      * The signature of the command.
