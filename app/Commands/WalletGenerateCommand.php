@@ -2,12 +2,15 @@
 
 namespace App\Commands;
 
+use App\Commands\Traits\WalletCommendable;
 use Illuminate\Console\Scheduling\Schedule;
 use Khomeriki\BitgoWallet\Facades\Wallet;
 use LaravelZero\Framework\Commands\Command;
 
-class WalletGenerateCommand extends CommandBase
+class WalletGenerateCommand extends Command
 {
+    use WalletCommendable;
+
     /**
      * The signature of the command.
      *

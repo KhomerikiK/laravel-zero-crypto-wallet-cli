@@ -2,12 +2,15 @@
 
 namespace App\Commands;
 
+use App\Commands\Traits\WalletCommendable;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
 
-class WalletListCommand extends CommandBase
+class WalletListCommand extends Command
 {
+    use WalletCommendable;
+
     /**
      * The signature of the command.
      *

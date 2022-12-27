@@ -3,12 +3,16 @@
 namespace App\Commands;
 
 use App\AccessToken;
+use App\Commands\Traits\WalletCommendable;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Cache;
 use Khomeriki\BitgoWallet\Adapters\BitgoAdapter;
+use LaravelZero\Framework\Commands\Command;
 
-class StartCommand extends CommandBase
+class StartCommand extends Command
 {
+    use WalletCommendable;
+
     /**
      * The signature of the command.
      *

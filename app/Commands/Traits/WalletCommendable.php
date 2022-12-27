@@ -1,29 +1,14 @@
 <?php
 
-namespace App\Commands;
+namespace App\Commands\Traits;
 
 use App\AccessToken;
 use App\Wallet;
 use Illuminate\Support\Facades\Cache;
 use Khomeriki\BitgoWallet\Adapters\BitgoAdapter;
-use LaravelZero\Framework\Commands\Command;
 
-class CommandBase extends Command
+trait WalletCommendable
 {
-    /**
-     * The signature of the command.
-     *
-     * @var string
-     */
-    protected $signature = 'start';
-
-    /**
-     * The description of the command.
-     *
-     * @var string
-     */
-    protected $description = 'Command description';
-
     /**
      * @param  int  $baseUnits
      * @return string

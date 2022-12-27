@@ -2,14 +2,17 @@
 
 namespace App\Commands;
 
+use App\Commands\Traits\WalletCommendable;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Arr;
 use Khomeriki\BitgoWallet\Data\Requests\TransferData;
 use Khomeriki\BitgoWallet\Data\Requests\TransferRecipientData;
 use LaravelZero\Framework\Commands\Command;
 
-class WalletTransferCommand extends CommandBase
+class WalletTransferCommand extends Command
 {
+    use WalletCommendable;
+
     /**
      * The signature of the command.
      *
