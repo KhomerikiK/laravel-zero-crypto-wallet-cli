@@ -28,8 +28,6 @@ class WalletGetCommand extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return void
      */
     public function handle(): void
     {
@@ -57,11 +55,6 @@ class WalletGetCommand extends Command
         }
     }
 
-    /**
-     * @param $wallet
-     * @param $maxSpendableAmount
-     * @return void
-     */
     private function renderWalletInfo($wallet, $maxSpendableAmount): void
     {
         $this->info("💳 Crypto currency: {$wallet->coin}");
@@ -73,10 +66,6 @@ class WalletGetCommand extends Command
         $this->info('💶 Maximum spendable amount: '.$this->baseUnitToCoin((int) $maxSpendableAmount['maximumSpendable']));
     }
 
-    /**
-     * @param $transfers
-     * @return void
-     */
     private function renderTransaction($transfers): void
     {
         $transfers = array_map(function ($transfer) {
@@ -99,9 +88,6 @@ class WalletGetCommand extends Command
 
     /**
      * Define the command's schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
      */
     public function schedule(Schedule $schedule): void
     {
