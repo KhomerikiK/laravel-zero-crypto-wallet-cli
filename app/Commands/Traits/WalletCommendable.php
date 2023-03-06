@@ -9,28 +9,16 @@ use Khomeriki\BitgoWallet\Adapters\BitgoAdapter;
 
 trait WalletCommendable
 {
-    /**
-     * @param  int  $baseUnits
-     * @return string
-     */
     protected function baseUnitToCoin(int $baseUnits): string
     {
         return number_format($baseUnits / 100000000, 7);
     }
 
-    /**
-     * @param  float  $usd
-     * @return string
-     */
     protected function usdFormat(float $usd): string
     {
         return number_format($usd, 2);
     }
 
-    /**
-     * @param  float  $coinAmount
-     * @return int
-     */
     protected function coinToBaseUnit(float $coinAmount): int
     {
         return (int) ($coinAmount * 100000000);
@@ -51,9 +39,6 @@ trait WalletCommendable
         );
     }
 
-    /**
-     * @return AccessToken
-     */
     public function authorize(): AccessToken
     {
         START:
