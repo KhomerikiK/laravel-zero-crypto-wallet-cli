@@ -5,14 +5,12 @@
 ##  CLI tool for Bitgo crypto wallet
 - used package for bitgo integration: https://github.com/KhomerikiK/laravel-bitgo-wallet
 ## requirements
-- php 8
+- php 8.*
 
 ## setup
+[Install BitGo Express](https://developers.bitgo.com/guides/get-started/express/install)
 ```bash
 composer install
-php cwc migrate
-
-cp .env.example .env
 ```
 ![img_6.png](img_6.png)
 # usage

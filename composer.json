@@ -28,7 +28,7 @@
         "illuminate/database": "^9.0",
         "illuminate/http": "^9.0",
         "illuminate/view": "^9.0",
-        "khomerikik/laravel-bitgo-wallet": "^0.1.0",
+        "khomerikik/laravel-bitgo-wallet": "^0.5",
         "laminas/laminas-text": "^2.9",
         "nunomaduro/laravel-console-menu": "^3.2",
         "nunomaduro/laravel-desktop-notifier": "^2.6",

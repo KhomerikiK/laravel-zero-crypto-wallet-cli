@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2098362e0841dda74b3dc6ed2d2e5b57",
+    "content-hash": "ce87c4d680e319e165193d3f8bbef2e2",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1612,16 +1612,16 @@
         },
         {
             "name": "khomerikik/laravel-bitgo-wallet",
-            "version": "v0.1.1",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KhomerikiK/laravel-bitgo-wallet.git",
-                "reference": "a654eda5f95cdfb81931beb0312941c2765b116b"
+                "reference": "bb4d519708d9b821a7333bfa88fe2a24395037ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KhomerikiK/laravel-bitgo-wallet/zipball/a654eda5f95cdfb81931beb0312941c2765b116b",
-                "reference": "a654eda5f95cdfb81931beb0312941c2765b116b",
+                "url": "https://api.github.com/repos/KhomerikiK/laravel-bitgo-wallet/zipball/bb4d519708d9b821a7333bfa88fe2a24395037ad",
+                "reference": "bb4d519708d9b821a7333bfa88fe2a24395037ad",
                 "shasum": ""
             },
             "require": {
@@ -1684,9 +1684,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KhomerikiK/laravel-bitgo-wallet/issues",
-                "source": "https://github.com/KhomerikiK/laravel-bitgo-wallet/tree/v0.1.1"
+                "source": "https://github.com/KhomerikiK/laravel-bitgo-wallet/tree/v0.5.0"
             },
-            "time": "2022-09-12T11:52:18+00:00"
+            "time": "2023-03-06T10:33:59+00:00"
         },
         {
             "name": "laminas/laminas-servicemanager",
@@ -6375,16 +6375,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.25",
+            "version": "9.2.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "0e2b40518197a8c0d4b08bc34dfff1c99c508954"
+                "reference": "443bc6912c9bd5b409254a40f4b0f4ced7c80ea1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/0e2b40518197a8c0d4b08bc34dfff1c99c508954",
-                "reference": "0e2b40518197a8c0d4b08bc34dfff1c99c508954",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/443bc6912c9bd5b409254a40f4b0f4ced7c80ea1",
+                "reference": "443bc6912c9bd5b409254a40f4b0f4ced7c80ea1",
                 "shasum": ""
             },
             "require": {
@@ -6406,8 +6406,8 @@
                 "phpunit/phpunit": "^9.3"
             },
             "suggest": {
-                "ext-pcov": "*",
-                "ext-xdebug": "*"
+                "ext-pcov": "PHP extension that provides line coverage",
+                "ext-xdebug": "PHP extension that provides line coverage as well as branch and path coverage"
             },
             "type": "library",
             "extra": {
@@ -6440,7 +6440,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.25"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.26"
             },
             "funding": [
                 {
@@ -6448,7 +6448,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-25T05:32:00+00:00"
+            "time": "2023-03-06T12:58:08+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
