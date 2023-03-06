@@ -39,11 +39,12 @@ class WalletTransferCommand extends Command
         $address = $this->ask('🔗 Enter receive address');
         $amount = $this->ask("💸 Enter $bitgoWallet->coin amount");
 
+        $passphrase = $this->secret('🔑 Wallet passphrase ');
         $baseAmount = $this->coinToBaseUnit($amount);
 
-        $this->task("📟 📡 Sending $amount $bitgoWallet->coin to $address", function () use ($bitgoWallet, $wallet, $baseAmount, $address) {
+        $this->task("📟 📡 Sending $amount $bitgoWallet->coin to $address", function () use ($passphrase, $bitgoWallet, $baseAmount, $address) {
             $transferData = TransferData::fromArray([
-                'walletPassphrase' => $wallet->passphrase,
+                'walletPassphrase' => $passphrase,
                 'recipients' => [
                     TransferRecipientData::fromArray([
                         'amount' => $baseAmount,

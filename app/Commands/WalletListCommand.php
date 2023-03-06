@@ -4,7 +4,6 @@ namespace App\Commands;
 
 use App\Commands\Traits\WalletCommendable;
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
 
 class WalletListCommand extends Command
@@ -32,17 +31,14 @@ class WalletListCommand extends Command
     {
         $token = $this->authorize();
         $wallets = $token->wallets()
-            ->select('id', 'crypto_currency', 'label', 'bitgo_id', 'passphrase')
+            ->select('id', 'crypto_currency', 'label', 'bitgo_id')
             ->orderBy('id', 'desc')
             ->get()->map(function ($wallet) {
-                $wallet = $wallet->toArray();
-                $wallet['passphrase'] = Str::mask($wallet['passphrase'], '*', '1');
-
-                return $wallet;
+                return $wallet->toArray();
             })->toArray();
 
         $this->table(
-            ['id', 'crypto_currency', 'label', 'bitgo_id', 'passphrase'],
+            ['id', 'crypto_currency', 'label', 'bitgo_id'],
             $wallets
         );
     }

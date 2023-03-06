@@ -45,7 +45,6 @@ class WalletGenerateCommand extends Command
                 'crypto_currency' => $coin,
                 'bitgo_id' => $wallet->id,
                 'label' => $label,
-                'passphrase' => $pass,
             ]);
         });
         $this->newLine();

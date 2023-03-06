@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('crypto_currency');
             $table->string('bitgo_id')->unique();
             $table->string('label');
-            $table->string('passphrase');
             $table->timestamps();
         });
     }
