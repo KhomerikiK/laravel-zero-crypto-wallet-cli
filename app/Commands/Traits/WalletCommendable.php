@@ -4,11 +4,23 @@ namespace App\Commands\Traits;
 
 use App\AccessToken;
 use App\Wallet;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 use Khomeriki\BitgoWallet\Adapters\BitgoAdapter;
 
 trait WalletCommendable
 {
+    private function checkDatabase(): void
+    {
+        $default = config('database.default');
+        $database = config("database.connections.$default.database");
+        if ($default == 'sqlite' && ! file_exists($database)) {
+            touch($database);
+            Artisan::call('migrate');
+            $this->info('SQLite database created');
+        }
+    }
+
     protected function baseUnitToCoin(int $baseUnits): string
     {
         return number_format($baseUnits / 100000000, 7);
@@ -41,6 +53,7 @@ trait WalletCommendable
 
     public function authorize(): AccessToken
     {
+        $this->checkDatabase();
         START:
         $accessToken = Cache::get('access_token');
         $expressApiUrl = Cache::get('bitgo_express_url');
