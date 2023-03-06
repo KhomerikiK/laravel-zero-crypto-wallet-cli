@@ -14,6 +14,7 @@ class Wallet extends Model
         'bitgo_id',
         'label',
         'passphrase',
+        'created_at',
     ];
 
     use HasFactory, Walletable;
